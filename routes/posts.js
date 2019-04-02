@@ -4,9 +4,7 @@ var connection = require('./databaseconnection');
 const { check, validationResult } = require('express-validator/check');
 router.get('/', function (req, res, next) {
     connection.query('select * from posts', function (error, results, fields) {
-        if (error) {
-            throw error;
-        }
+        if (error) throw error
         res.send(results)
     });
 })
